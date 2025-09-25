@@ -8,6 +8,14 @@ for (let i = 0; i < 256; i++){
 
 
     grid.addEventListener('mouseover', function(){
+        if(!grid.dataset.hoverCount){
+            grid.dataset.hoverCount = 0;
+        }
+
+        grid.dataset.hoverCount++;
+        let opacity = grid.dataset.hoverCount / 10;
+
+        grid.style.opacity = opacity;
         grid.style.backgroundColor = "yellow";
 
 })
@@ -34,8 +42,17 @@ button.addEventListener('click', function(){
         grid.style.height = (800 / number) + 'px';
 
 
+
         grid.addEventListener('mouseover', function(){
-            grid.style.backgroundColor = "yellow";
+            if (!grid.dataset.hoverCount){
+                grid.dataset.hoverCount = 0;
+            }
+
+            grid.dataset.hoverCount++;
+
+            let opacity = grid.dataset.hoverCount / 10;
+            grid.style.backgroundColor = 'blue';
+            grid.style.opacity = opacity;
 
     })
 
